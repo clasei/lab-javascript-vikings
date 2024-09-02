@@ -25,7 +25,6 @@ class Viking extends Soldier {
   }
 
   receiveDamage(damage) {
-
     this.damage = damage;
 
     this.health = this.health - this.damage;
@@ -38,13 +37,30 @@ class Viking extends Soldier {
   }
 
   battleCry() {
-
     return 'Odin Owns You All!'
   }
 }
 
 // Saxon
-class Saxon {}
+class Saxon extends Soldier { // same constructor, no need to add it again here
+  // constructor(health, strength) {
+  //   super(health, strength);
+  // }
+
+  // only adding here the method changed from Soldier class
+
+  receiveDamage(damage) {
+    this.damage = damage;
+
+    this.health = this.health - this.damage;
+
+    if (this.health > 0) {
+      return `A Saxon has received ${this.damage} points of damage`
+    } else if (this.health <= 0 ) {
+      return `A Saxon has died in combat`
+    }
+  }
+}
 
 // War
 class War {}
